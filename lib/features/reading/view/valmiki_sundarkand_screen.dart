@@ -69,6 +69,8 @@ class ValmikiSundarkandScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          Expanded(child: PdfView(controller: controller.pdfController)),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
             decoration: const BoxDecoration(

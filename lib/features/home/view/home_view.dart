@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hanuman_ji_sundar_kand/features/chalisa/view/chalisa_screen.dart';
 import 'package:hanuman_ji_sundar_kand/features/sundar_kand_listing/sundar_kand_listing_screen.dart';
 import '../../../widgets/home_widgets.dart';
 
@@ -117,6 +118,13 @@ class HomeView extends StatelessWidget {
                       subtitle: 'पूरे सुंदरकांड का पाठ करें',
                       icon: Icons.menu_book,
                       onTap: () => Get.to(() => SundarKandListingScreen()),
+                    ),
+                    const SizedBox(height: 20),
+                    MainActionCard(
+                      title: 'हनुमान चालीसा',
+                      subtitle: 'चालीसा पढ़ें और सुनें',
+                      icon: Icons.music_note,
+                      onTap: () => Get.to(() => const ChalisaScreen()),
                     ),
                     const SizedBox(height: 20),
                   ],
