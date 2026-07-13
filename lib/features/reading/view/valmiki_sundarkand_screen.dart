@@ -51,13 +51,14 @@ class ValmikiSundarkandScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: PdfViewPinch(
+            child: PdfView(
               controller: controller.pdfController,
+              scrollDirection: Axis.horizontal,
               onDocumentLoaded: (document) {
                 controller.totalPages.value = document.pagesCount;
               },
               onPageChanged: controller.onPageChanged,
-              builders: PdfViewPinchBuilders<DefaultBuilderOptions>(
+              builders: PdfViewBuilders<DefaultBuilderOptions>(
                 options: const DefaultBuilderOptions(),
                 documentLoaderBuilder: (_) => const Center(
                   child: CircularProgressIndicator(color: Colors.orange),

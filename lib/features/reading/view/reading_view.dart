@@ -51,18 +51,18 @@ class ReadingView extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: PdfViewPinch(
+            child: PdfView(
               controller: controller.pdfController,
               onDocumentLoaded: (document) {
                 controller.totalPages.value = document.pagesCount;
               },
               onPageChanged: controller.onPageChanged,
-              builders: PdfViewPinchBuilders<DefaultBuilderOptions>(
-                options: const DefaultBuilderOptions(),
-                documentLoaderBuilder: (_) => const Center(
+              builders: PdfViewBuilders<DefaultBuilderOptions>(
+                options: DefaultBuilderOptions(),
+                documentLoaderBuilder: (_) => Center(
                   child: CircularProgressIndicator(color: Colors.orange),
                 ),
-                pageLoaderBuilder: (_) => const Center(
+                pageLoaderBuilder: (_) => Center(
                   child: CircularProgressIndicator(color: Colors.orange),
                 ),
               ),
