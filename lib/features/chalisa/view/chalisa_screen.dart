@@ -57,7 +57,7 @@ class ChalisaScreen extends StatelessWidget {
               ),
             ),
           ),
-          
+
           // Audio Controls with Visible Timer
           Container(
             padding: const EdgeInsets.fromLTRB(20, 10, 20, 30),
@@ -70,7 +70,9 @@ class ChalisaScreen extends StatelessWidget {
                   offset: const Offset(0, -5),
                 ),
               ],
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(30),
+              ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -81,44 +83,61 @@ class ChalisaScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Obx(() => Text(
-                        _formatDuration(controller.position.value),
-                        style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.orange),
-                      )),
-                      Obx(() => Text(
-                        _formatDuration(controller.duration.value),
-                        style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
-                      )),
+                      Obx(
+                        () => Text(
+                          _formatDuration(controller.position.value),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orange,
+                          ),
+                        ),
+                      ),
+                      Obx(
+                        () => Text(
+                          _formatDuration(controller.duration.value),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
 
                 // Slider
-                Obx(() => Slider(
-                  activeColor: Colors.orange,
-                  inactiveColor: Colors.orange.shade100,
-                  min: 0,
-                  max: controller.duration.value.inSeconds.toDouble() > 0 
-                      ? controller.duration.value.inSeconds.toDouble() 
-                      : 1.0, 
-                  value: controller.position.value.inSeconds.toDouble().clamp(
-                    0, 
-                    controller.duration.value.inSeconds.toDouble() > 0 
-                        ? controller.duration.value.inSeconds.toDouble() 
-                        : 1.0
+                Obx(
+                  () => Slider(
+                    activeColor: Colors.orange,
+                    inactiveColor: Colors.orange.shade100,
+                    min: 0,
+                    max: controller.duration.value.inSeconds.toDouble() > 0
+                        ? controller.duration.value.inSeconds.toDouble()
+                        : 1.0,
+                    value: controller.position.value.inSeconds.toDouble().clamp(
+                      0,
+                      controller.duration.value.inSeconds.toDouble() > 0
+                          ? controller.duration.value.inSeconds.toDouble()
+                          : 1.0,
+                    ),
+                    onChanged: (value) =>
+                        controller.seek(Duration(seconds: value.toInt())),
                   ),
-                  onChanged: (value) => controller.seek(Duration(seconds: value.toInt())),
-                )),
+                ),
 
                 // Play/Pause
-                Obx(() => IconButton(
-                  iconSize: 64,
-                  icon: Icon(
-                    controller.isPlaying.value ? Icons.pause_circle_filled : Icons.play_circle_filled,
-                    color: Colors.orange,
+                Obx(
+                  () => IconButton(
+                    iconSize: 64,
+                    icon: Icon(
+                      controller.isPlaying.value
+                          ? Icons.pause_circle_filled
+                          : Icons.play_circle_filled,
+                      color: Colors.orange,
+                    ),
+                    onPressed: () => controller.playPause(),
                   ),
-                  onPressed: () => controller.playPause(),
-                )),
+                ),
               ],
             ),
           ),

@@ -19,8 +19,9 @@ class MainActionCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
         width: double.infinity,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
             colors: [Color(0xFFFF7043), Color(0xFFF4511E)],
@@ -39,7 +40,7 @@ class MainActionCard extends StatelessWidget {
               ),
               child: Icon(icon, color: Colors.orange, size: 24),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

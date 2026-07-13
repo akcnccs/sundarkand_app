@@ -31,22 +31,22 @@ class ReadingView extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        actions: [
-          Obx(
-            () => Center(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: Text(
-                  '${controller.currentPage.value} / ${controller.totalPages.value}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
+        // actions: [
+        //   Obx(
+        //     () => Center(
+        //       child: Padding(
+        //         padding: const EdgeInsets.only(right: 16.0),
+        //         child: Text(
+        //           '${controller.currentPage.value} / ${controller.totalPages.value}',
+        //           style: const TextStyle(
+        //             color: Colors.white,
+        //             fontWeight: FontWeight.bold,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ],
       ),
       body: Column(
         children: [

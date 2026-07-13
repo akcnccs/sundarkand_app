@@ -4,7 +4,7 @@ class ListingCardWidget extends StatelessWidget {
   final String title;
   final String subTitle;
   final VoidCallback onTap;
-  
+
   const ListingCardWidget({
     super.key,
     required this.title,
@@ -20,14 +20,14 @@ class ListingCardWidget extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(15),
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Colors.orange.shade100, width: 1.5),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Colors.orange.shade100, width: 1),
             boxShadow: [
               BoxShadow(
-                color: Colors.orange.shade200.withValues(alpha: 0.2),
+                color: Colors.black.withValues(alpha: 0.10),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -57,11 +57,10 @@ class ListingCardWidget extends StatelessWidget {
                       style: const TextStyle(
                         color: Color(0xFFD84315),
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    if (subTitle.isNotEmpty) ...[
-                      const SizedBox(height: 4),
+                    if (subTitle.isNotEmpty)
                       Text(
                         subTitle,
                         style: TextStyle(
@@ -69,14 +68,13 @@ class ListingCardWidget extends StatelessWidget {
                           fontSize: 14,
                         ),
                       ),
-                    ],
                   ],
                 ),
               ),
               const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.orange,
-                size: 18,
+                size: 16,
               ),
             ],
           ),
